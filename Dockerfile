@@ -20,11 +20,25 @@ RUN (\
         python-virtualenv \
         python-webob \
         qt4-designer \
+        sqlite3 \
         && \
     rm -rf /var/lib/apt/lists/*debian.{org,net}* && \
     apt-get purge -y --auto-remove && \
+    useradd --system --create-home --home /home/mnemosyne mnemosyne && \
+    echo 'mnemosyne ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
     python setup.py install \
     )
+
+#USER mnemosyne
+ENV HOME /home/mnemosyne
+WORKDIR /home/mnemosyne
+
+COPY configdb_dump.sql /tmp/
+RUN \
+    mkdir -p /home/mnemosyne/.config/mnemosyne && \
+    sqlite3 /home/mnemosyne/.config/mnemosyne/config.db < /tmp/configdb_dump.sql
+
+#VOLUME /home/mnemosyne/.local/share/mnemosyne
 
 EXPOSE 8512
 EXPOSE 8513
