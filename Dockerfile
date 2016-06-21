@@ -1,7 +1,6 @@
-FROM joelpet/debian:jessie
+FROM debian:jessie
 
-ADD Mnemosyne-2.3.2.tar.gz /src
-WORKDIR /src/Mnemosyne-2.3.2
+ENV HOME /home/mnemosyne
 
 RUN (\
     export DEBIAN_FRONTEND=noninteractive; \
@@ -25,22 +24,26 @@ RUN (\
     rm -rf /var/lib/apt/lists/*debian.{org,net}* && \
     apt-get purge -y --auto-remove && \
     useradd --system --create-home --home /home/mnemosyne mnemosyne && \
-    echo 'mnemosyne ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
-    python setup.py install \
+    echo 'mnemosyne ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     )
 
 #USER mnemosyne
-ENV HOME /home/mnemosyne
+
+ADD Mnemosyne-2.3.6.tar.gz /src
+WORKDIR /src/Mnemosyne-2.3.6
+
+RUN python setup.py install 
+
 WORKDIR /home/mnemosyne
 
-COPY configdb_dump.sql /tmp/
-RUN \
-    mkdir -p /home/mnemosyne/.config/mnemosyne && \
-    sqlite3 /home/mnemosyne/.config/mnemosyne/config.db < /tmp/configdb_dump.sql
+#COPY configdb_dump.sql /tmp/
+#RUN \
+#    mkdir -p /home/mnemosyne/.config/mnemosyne && \
+#    sqlite3 /home/mnemosyne/.config/mnemosyne/config.db < /tmp/configdb_dump.sql
 
 #VOLUME /home/mnemosyne/.local/share/mnemosyne
 
 EXPOSE 8512
 EXPOSE 8513
 
-ENTRYPOINT ["mnemosyne", "--sync-server", "--web-server"]
+ENTRYPOINT ["mnemosyne"]
