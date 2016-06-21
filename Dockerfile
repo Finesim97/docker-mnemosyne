@@ -20,6 +20,8 @@ RUN (\
         python-webob \
         qt4-designer \
         sqlite3 \
+        && \
+    apt-get install -y  \
         texlive-base \
         dvipng \
         && \
