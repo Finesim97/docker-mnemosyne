@@ -20,6 +20,8 @@ RUN (\
         python-webob \
         qt4-designer \
         sqlite3 \
+        texlive-base \
+        dvipng \
         && \
     rm -rf /var/lib/apt/lists/*debian.{org,net}* && \
     apt-get purge -y --auto-remove && \
@@ -27,7 +29,6 @@ RUN (\
     echo 'mnemosyne ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     )
 
-#USER mnemosyne
 
 ADD Mnemosyne-2.3.6.tar.gz /src
 WORKDIR /src/Mnemosyne-2.3.6
@@ -35,6 +36,7 @@ WORKDIR /src/Mnemosyne-2.3.6
 RUN python setup.py install 
 
 WORKDIR /home/mnemosyne
+USER mnemosyne
 
 #COPY configdb_dump.sql /tmp/
 #RUN \
