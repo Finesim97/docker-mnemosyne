@@ -2,9 +2,10 @@ FROM debian:jessie
 
 ENV HOME /home/mnemosyne
 
+# httpredir.debian.org experiencing non-deterministic failures 2016/06/22
 RUN (\
     export DEBIAN_FRONTEND=noninteractive; \
-    sed --in-place 's/ftp.us.debian.org/ftp.se.debian.org/' /etc/apt/sources.list && \
+    sed --in-place 's/httpredir.debian.org/mirror.sov.uk.goscomb.net/' /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         libqt4-sql-sqlite \
@@ -20,9 +21,7 @@ RUN (\
         python-webob \
         qt4-designer \
         sqlite3 \
-        && \
-    apt-get install -y  \
-        texlive-base \
+        texlive-latex-base \
         dvipng \
         && \
     rm -rf /var/lib/apt/lists/*debian.{org,net}* && \
@@ -38,7 +37,7 @@ WORKDIR /src/Mnemosyne-2.3.6
 RUN python setup.py install 
 
 WORKDIR /home/mnemosyne
-USER mnemosyne
+# USER mnemosyne
 
 #COPY configdb_dump.sql /tmp/
 #RUN \
