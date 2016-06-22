@@ -11,8 +11,23 @@ docker run -d \
     --name mnemosyne \
     sublimino/mnemosyne:latest
 
-sleep $((5))
+PAUSE=0.1
+activate_window() {
+    wmctrl -R Mnemosyne && sleep ${PAUSE} && xdotool getactivewindow && xdotool key ctrl+m && sleep ${PAUSE}
+}
+
+until wmctrl -R Mnemosyne; do sleep 0.1; done
+
+echo Importing
+activate_window && xdotool key alt+i && sleep ${PAUSE} && xdotool key alt+d
+
+sleep $((60 * 5))
+wmctrl -R Mnemosyne
 notify-send "Shutdown alert" "Terminating Mnemosyne in 5s..." -u critical --expire-time 5000
 sleep 5
+
+activate_window && xdotool key alt+e && sleep ${PAUSE} && xdotool key alt+d
+sleep 3
+
 wmctrl -c "Mnemosyne"
 
