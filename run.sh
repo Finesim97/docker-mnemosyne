@@ -1,7 +1,7 @@
 #!/bin/bash -xe
 
 xhost local:root 
-docker rm --force mnemosyne
+docker rm --force mnemosyne || true
 docker run -d \
     -e DISPLAY=unix$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
