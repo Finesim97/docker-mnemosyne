@@ -35,5 +35,5 @@ wmctrl -R Mnemosyne
 notify-send "Shutdown alert" "Terminating Mnemosyne in 5s..." -u critical --expire-time 5000
 sleep 5
 
-trap echo bye EXIT
+trap "echo bye" EXIT
 shutdown
