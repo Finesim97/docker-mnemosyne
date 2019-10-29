@@ -66,7 +66,7 @@ INSERT INTO config VALUES('shown_schedule_help','False');
 INSERT INTO config VALUES('asynchronous_database','False');
 INSERT INTO config VALUES('author_name','''''');
 INSERT INTO config VALUES('author_email','''''');
-INSERT INTO config VALUES('import_dir','''/home/mnemosyne'');
+INSERT INTO config VALUES('import_dir','''/home/mnemosyne''');
 INSERT INTO config VALUES('import_format','None');
 INSERT INTO config VALUES('import_extra_tag_names','''''');
 INSERT INTO config VALUES('export_dir','''/home/mnemosyne''');
