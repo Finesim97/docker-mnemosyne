@@ -1,5 +1,12 @@
-core:
-    build: .
+version: "3.7"
+
+services:
+  mnemosyne:
+    build: 
+        context: https://github.com/Finesim97/docker-mnemosyne.git
+    env:
+        - USERNAME:"user"
+        - PASSWORD:"password"
     ports:
-        - "49156:8512"
-        - "49157:8513"
+        - 49156:8512
+        - 49157:8513
