@@ -9,6 +9,7 @@ RUN (\
         pyqt5-dev-tools \
         python3-pyqt5.qtwebengine \
         python3-cherrypy3 \
+        python3-cheroot \
         python3-matplotlib \
         pyqt5-dev \
         python3-setuptools \

@@ -8,10 +8,8 @@ if [ "$1" = 'mnemosyne' ]; then
     fi
     echo "UPDATE config SET value='$USERNAME' WHERE key='remote_access_username'" | sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
     echo "UPDATE config SET value='$PASSWORD' WHERE key='remote_access_password'" | sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
-    echo "UPDATE config SET value='True' WHERE key='run_sync_server'" | sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
-    echo "UPDATE config SET value='${WEBSERVER:-False}' WHERE key='run_web_server'" | sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
     unset USERNAME
     unset PASSWORD
-    exec mnemosyne "$@"
+    exec mnemosyne --sync-server --webserver
 fi
 exec "$@"
