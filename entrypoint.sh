@@ -7,14 +7,14 @@ if [ -z ${USERNAME+x} ] || [ -z ${PASSWORD+x} ] ;  then
     exit 1
 fi
 
-echo "UPDATE config SET value='''$USERNAME''' WHERE key='remote_access_username'" | sudo -u mnemosyne sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
-echo "UPDATE config SET value='''$PASSWORD''' WHERE key='remote_access_password'" | sudo -u mnemosyne sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
+echo "UPDATE config SET value='''$USERNAME''' WHERE key='remote_access_username'" | su mnemosyne -C "sqlite3 /home/mnemosyne/.config/mnemosyne/config.db"
+echo "UPDATE config SET value='''$PASSWORD''' WHERE key='remote_access_password'" | su mnemosyne -C  "sqlite3 /home/mnemosyne/.config/mnemosyne/config.db"
 
 unset USERNAME
 unset PASSWORD
 
 if [ "$1" = 'mnemosyne' ]; then
-    sudo -u mnemosyne exec mnemosyne --sync-server --web-server
+    su mnemosyne -c "mnemosyne --sync-server --web-server"
 else
-    sudo -u mnemosyne exec "$@"
+    su mnemosyne -c "exec '$@'"
 fi
