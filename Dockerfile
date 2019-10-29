@@ -21,6 +21,7 @@ RUN (\
         sqlite3 \
         texlive-latex-base \
         dvipng \
+        curl \
         && \
     rm -rf /var/lib/apt/lists/*debian.{org,net}* && \
     apt-get purge -y --auto-remove && \
