@@ -1,2 +1,3 @@
 *
-!Mnemosyne-*.tar.gz
+!entrypoint.sh
+!configdb_dump.sql
