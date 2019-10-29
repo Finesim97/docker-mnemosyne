@@ -7,6 +7,8 @@ services:
     env:
         - USERNAME:"user"
         - PASSWORD:"password"
+    volumes:
+        - /dockerdata/mnemosyne:/home/mnemosyne/.local/share/mnemosyne/ # host:container
     ports:
-        - 49156:8512
-        - 49157:8513
+        - 8512:8512 # Sync Server
+#       - 8513:8513 # Web Server, uncomment if you want it

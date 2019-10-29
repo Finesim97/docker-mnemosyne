@@ -44,7 +44,7 @@ RUN \
     mkdir -p /home/mnemosyne/.config/mnemosyne && \
     sqlite3 /home/mnemosyne/.config/mnemosyne/config.db < /tmp/configdb_dump.sql
 
-VOLUME /home/mnemosyne/.config/mnemosyne
+VOLUME /home/mnemosyne/.local/share/mnemosyne/
 
 EXPOSE 8512
 EXPOSE 8513
