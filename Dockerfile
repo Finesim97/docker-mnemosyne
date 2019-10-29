@@ -31,7 +31,7 @@ RUN mkdir -p /src && \
     tar xzf - -C /src
 WORKDIR /src/Mnemosyne-${MNEM_VERSION}
 
-RUN python setup.py install 
+RUN python3 setup.py install 
 
 WORKDIR /home/mnemosyne
 COPY entrypoint.sh /usr/local/bin/
