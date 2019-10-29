@@ -4,6 +4,7 @@ set -e
 echo "UPDATE config SET value='$USERNAME' WHERE key='remote_access_username'" | sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
 echo "UPDATE config SET value='$PASSWORD' WHERE key='remote_access_password'" | sqlite3 /home/mnemosyne/.config/mnemosyne/config.db
 
+echo "Start"
 
 if [ "$1" = 'mnemosyne' ]; then
     if [ -z ${USERNAME+x} ] || [ -z ${PASSWORD+x} ] ;  then 
