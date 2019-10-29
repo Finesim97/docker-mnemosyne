@@ -47,5 +47,5 @@ VOLUME /home/mnemosyne/.config/mnemosyne
 EXPOSE 8512
 EXPOSE 8513
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["mnemosyne"]
