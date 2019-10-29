@@ -23,7 +23,7 @@ RUN (\
         && \
     rm -rf /var/lib/apt/lists/*debian.{org,net}* && \
     apt-get purge -y --auto-remove && \
-    useradd --system --create-home --home /home/mnemosyne mnemosyne \
+    useradd -u 1000 --system --create-home --home /home/mnemosyne mnemosyne \
     )
 
 ENV MNEM_VERSION 2.6.1
