@@ -38,7 +38,6 @@ RUN python3 setup.py install
 WORKDIR /home/mnemosyne
 COPY entrypoint.sh /usr/local/bin/
 USER mnemosyne
-
 COPY configdb_dump.sql /tmp/
 RUN \
     mkdir -p /home/mnemosyne/.config/mnemosyne && \
@@ -46,8 +45,8 @@ RUN \
 
 VOLUME /home/mnemosyne/.local/share/mnemosyne/
 
+USER root
 EXPOSE 8512
 EXPOSE 8513
-
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["mnemosyne"]

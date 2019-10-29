@@ -4,9 +4,9 @@ services:
   mnemosyne:
     build: 
         context: https://github.com/Finesim97/docker-mnemosyne.git
-    env:
-        - USERNAME:"user"
-        - PASSWORD:"password"
+    environment:
+        - USERNAME="user"
+        - PASSWORD="password"
     volumes:
         - /dockerdata/mnemosyne:/home/mnemosyne/.local/share/mnemosyne/ # host:container
     ports:
