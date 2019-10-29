@@ -6,18 +6,14 @@ RUN (\
     export DEBIAN_FRONTEND=noninteractive; \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        libqt4-sql-sqlite \
-        pyqt4-dev-tools \
-        python-cherrypy3 \
-        python-matplotlib \
-        python-qt4-dev \
-        python-qt4-phonon \
-        python-qt4-sql \
-        python-setuptools \
-        python-sphinx \
-        python-virtualenv \
-        python-webob \
-        qt4-designer \
+        pyqt5-dev-tools \
+        python3-cherrypy3 \
+        python3-matplotlib \
+        pyqt5-dev \
+        python3-setuptools \
+        python3-sphinx \
+        python3-virtualenv \
+        python3-webob \
         sqlite3 \
         texlive-latex-base \
         dvipng \
