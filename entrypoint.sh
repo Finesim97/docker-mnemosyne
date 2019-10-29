@@ -2,7 +2,7 @@
 set -e
 
 if [ "$1" = 'mnemosyne' ]; then
-    if [ ! -z ${USERNAME+x} ] || [ ! -z ${PASSWORD+x} ] ;  then 
+    if [ -z ${USERNAME+x} ] || [ -z ${PASSWORD+x} ] ;  then 
         echo "You have to provide a username(env: USERNAME) and password (env: PASSWORD)"
         exit 1
     fi

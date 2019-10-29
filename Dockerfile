@@ -7,6 +7,7 @@ RUN (\
     apt-get update && \
     apt-get install -y --no-install-recommends \
         pyqt5-dev-tools \
+        qtwebengine5-dev \
         python3-cherrypy3 \
         python3-matplotlib \
         pyqt5-dev \
