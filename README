@@ -1,7 +1,0 @@
-First, create a config database dump file from the provided
-configdb_dump.sql.example. Then, edit the configuration database dump before
-creating the config.db:
-
-```
-sqlite3 config.db < configdb_dump.sql
-```
