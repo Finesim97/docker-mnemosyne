@@ -11,10 +11,9 @@ if [ "$1" = 'mnemosyne' ]; then
     fi
     unset USERNAME
     unset PASSWORD
-    echo "WHY1"
-    exec mnemosyne --sync-server --web-server
-    echo "WHY"
+    mnemosyne --sync-server --web-server
+else
+    unset USERNAME
+    unset PASSWORD
+    exec "$@"
 fi
-unset USERNAME
-unset PASSWORD
-exec "$@"
