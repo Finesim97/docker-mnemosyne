@@ -4,8 +4,8 @@ ENV HOME /home/mnemosyne
 
 RUN (\
     export DEBIAN_FRONTEND=noninteractive; \
-    apt update && \
-    apt install -y --no-install-recommends \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         libqt4-sql-sqlite \
         pyqt4-dev-tools \
         python-cherrypy3 \
@@ -29,7 +29,9 @@ RUN (\
 
 ENV MNEM_VERSION 2.6.1
 
-ADD https://sourceforge.net/projects/mnemosyne-proj/files/mnemosyne/mnemosyne-${MNEM_VERSION}/Mnemosyne-${MNEM_VERSION}.tar.gz/download /src
+RUN mkdir -p /src && \
+    curl -L https://sourceforge.net/projects/mnemosyne-proj/files/mnemosyne/mnemosyne-${MNEM_VERSION}/Mnemosyne-${MNEM_VERSION}.tar.gz/download | \
+    tar xzf - -C /src
 WORKDIR /src/Mnemosyne-${MNEM_VERSION}
 
 RUN python setup.py install 
