@@ -1,6 +1,6 @@
 # MnemosyneSync Container
 
-This project is for running the Mnemosyne Sync server in a docker container.
+This project is for running the [Mnemosyne](https://mnemosyne-proj.org) sync-server in a docker container.
 
 You can run it by creating a `docker-compose.yml` file in a new directory:
 
