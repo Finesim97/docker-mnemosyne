@@ -7,8 +7,8 @@ if [ -z ${USERNAME+x} ] || [ -z ${PASSWORD+x} ] ;  then
     exit 1
 fi
 
-echo "UPDATE config SET value='''$USERNAME''' WHERE key='remote_access_username'" | su mnemosyne -C "sqlite3 /home/mnemosyne/.config/mnemosyne/config.db"
-echo "UPDATE config SET value='''$PASSWORD''' WHERE key='remote_access_password'" | su mnemosyne -C  "sqlite3 /home/mnemosyne/.config/mnemosyne/config.db"
+echo "UPDATE config SET value='''$USERNAME''' WHERE key='remote_access_username'" | su mnemosyne -c "sqlite3 /home/mnemosyne/.config/mnemosyne/config.db"
+echo "UPDATE config SET value='''$PASSWORD''' WHERE key='remote_access_password'" | su mnemosyne -c  "sqlite3 /home/mnemosyne/.config/mnemosyne/config.db"
 
 unset USERNAME
 unset PASSWORD
