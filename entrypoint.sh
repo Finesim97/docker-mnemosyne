@@ -1,7 +1,14 @@
 #!/bin/bash
 set -e
+
+if [ ! -f "/home/mnemosyne/.local/share/mnemosyne/machine.id" ] ; then
+    echo "from mnemosyne.libmnemosyne.utils import rand_uuid;print(rand_uuid())" | python3 > "/home/mnemosyne/.local/share/mnemosyne/machine.id" 
+fi
+
 chown -R mnemosyne:mnemosyne /home/mnemosyne/.local/share/mnemosyne/
-chown -R mnemosyne:mnemosyne /home/mnemosyne/.config/mnemosyne
+cp /home/mnemosyne/.local/share/mnemosyne/machine.id /home/mnemosyne/.config/mnemosyne/machine.id
+
+
 
 if [ -z ${USERNAME+x} ] || [ -z ${PASSWORD+x} ] ;  then 
     echo "You have to provide a username(env: USERNAME) and password (env: PASSWORD)"
