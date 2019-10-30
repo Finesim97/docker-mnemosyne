@@ -16,7 +16,6 @@ services:
     restart: always
     volumes:
         - ./mnemodata:/home/mnemosyne/.local/share/mnemosyne/ # host:container
-        - ./mnemoconfig:/home/mnemosyne/.config/mnemosyne/ # To prevent the sync cycle error
     ports:
         - 8512:8512 # Sync Server host:container
 #       - 8513:8513 # Web Server, uncomment if you want it
