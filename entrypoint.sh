@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 chown -R mnemosyne:mnemosyne /home/mnemosyne/.local/share/mnemosyne/
+chown -R mnemosyne:mnemosyne /home/mnemosyne/.config/mnemosyne
 
 if [ -z ${USERNAME+x} ] || [ -z ${PASSWORD+x} ] ;  then 
     echo "You have to provide a username(env: USERNAME) and password (env: PASSWORD)"
