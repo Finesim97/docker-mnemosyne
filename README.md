@@ -21,7 +21,7 @@ services:
 ```
 And run it in the background with:
 ```
-docker-compose up -d --build
+docker-compose up -d
 ``` 
 The database will be in `mnemodata`.
 
