@@ -8,8 +8,7 @@ You can run it by creating a `docker-compose.yml` file in a new directory:
 version: "3.7"
 services:
   mnemosyne:
-    build: 
-        context: https://github.com/Finesim97/docker-mnemosyne.git
+    image: Finesim97/docker-mnemosyne
     environment:
         - USERNAME=user
         - PASSWORD=password
