@@ -17,6 +17,7 @@ RUN (\
         python3-virtualenv \
         python3-webob \
         sqlite3 \
+        python3-pip \
         texlive-latex-base \
         dvipng \
         curl \
@@ -25,6 +26,9 @@ RUN (\
     apt-get purge -y --auto-remove && \
     useradd -u 1000 --system --create-home --home /home/mnemosyne mnemosyne \
     )
+    
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir googletrans
 
 ENV MNEM_VERSION 2.7.1
 
