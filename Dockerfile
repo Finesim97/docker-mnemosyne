@@ -26,7 +26,7 @@ RUN (\
     useradd -u 1000 --system --create-home --home /home/mnemosyne mnemosyne \
     )
 
-ENV MNEM_VERSION 2.6.1
+ENV MNEM_VERSION 2.7.1
 
 RUN mkdir -p /src && \
     curl -L https://sourceforge.net/projects/mnemosyne-proj/files/mnemosyne/mnemosyne-${MNEM_VERSION}/Mnemosyne-${MNEM_VERSION}.tar.gz/download | \
