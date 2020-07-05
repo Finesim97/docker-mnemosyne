@@ -27,8 +27,8 @@ RUN (\
     useradd -u 1000 --system --create-home --home /home/mnemosyne mnemosyne \
     )
     
-RUN pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir googletrans
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m pip install --no-cache-dir googletrans
 
 ENV MNEM_VERSION 2.7.1
 
