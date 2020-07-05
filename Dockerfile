@@ -28,7 +28,9 @@ RUN (\
     )
     
 RUN python3 -m pip install --upgrade pip && \
-    python3 -m pip install --no-cache-dir googletrans
+    python3 -m pip install --no-cache-dir \ 
+    googletrans \
+    gtts
 
 ENV MNEM_VERSION 2.7.1
 
